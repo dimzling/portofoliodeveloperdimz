@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Dimz Developer - Portfolio Sidebar</title>
+
+  <!-- Fonts & Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css"/>
+
+  <!-- 🔥 Tambahan Library untuk fitur baru -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"/>
+  <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/vanilla-tilt@1.7.3/dist/vanilla-tilt.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/particles.js"></script>
+</head>
+<body class="dark">
+  <!-- Background Video -->
+  <video autoplay muted loop playsinline preload="metadata" id="bg-video">
+    <source src="https://files.catbox.moe/4yzklv.mp4" type="video/mp4">
+  </video>
+
+  <!-- Loading -->
+  <div id="loading"><span></span></div>
+  <!-- Cursor Glow -->
+  <div id="cursor-glow"></div>
+
+  <!-- Header -->
+  <header>
+    <h1>Dimz <span class="gradient-text">Dev</span></h1>
+    <i class="fas fa-ellipsis-v menu-btn" onclick="toggleSidebar()"></i>
+  </header>
+
+  <!-- Sidebar drawer -->
+  <div class="sidebar" id="sidebar">
+    <i class="fas fa-times close-btn" onclick="toggleSidebar()"></i>
+    <a href="#hero" class="typewriter" data-text="Home"></a>
+    <a href="#about" class="typewriter" data-text="Tentang"></a>
+    <a href="#projects" class="typewriter" data-text="Projek"></a>
+    <a href="#cv-dimas" class="typewriter" data-text="CV"></a>
+    <a href="#skills" class="typewriter" data-text="Skill"></a>
+
+    <!-- 🔗 Sosial Media -->
+    <div style="margin-top:2rem;display:flex;gap:1rem;flex-wrap:wrap;justify-content:center">
+      <a href="mailto:dimasputr503n@gmail.com" target="_blank"><i class="fas fa-envelope"></i></a>
+      <a href="https://wa.me/6288221444002" target="_blank"><i class="fab fa-whatsapp"></i></a>
+      <a href="https://github.com/" target="_blank"><i class="fab fa-github"></i></a>
+      <a href="https://instagram.com/" target="_blank"><i class="fab fa-instagram"></i></a>
+      <a href="https://linkedin.com/" target="_blank"><i class="fab fa-linkedin"></i></a>
+    </div>
+  </div>
+
+  <!-- Awalan Intro -->
+  <section id="intro">
+    <div class="intro-content">
+      <div class="icons">
+        <i class="fas fa-code"></i>
+        <i class="fas fa-user"></i>
+        <i class="fab fa-github"></i>
+      </div>
+      <h2>Welcome To My</h2>
+      <h1><span>Portfolio</span> <span>Website</span></h1>
+      <p><i class="fas fa-globe"></i> www.dimzdev</p>
+    </div>
+  </section>
+
+  <main>
+    <!-- Hero -->
+    <section id="hero">
+      <h2 class="gradient-text" data-aos="fade-up">Halo, Dimas Putra Pratama</h2>
+      <p id="typewriter"></p>
+      <button class="btn-glow" onclick="playClick()">Hayy saya dimas</button>
+    </section>
+
+    <!-- About -->
+    <section id="about">
+      <h2 class="gradient-text" data-aos="fade-up">Tentang Saya</h2>
+
+      <!-- 🔥 Foto Profil Bulat -->
+      <div style="margin-top:2rem;" data-aos="zoom-in">
+        <img src="https://files.catbox.moe/y6r2m3.jpg" 
+             alt="Foto Profil Dimas" 
+             style="width:160px;height:160px;object-fit:cover;border-radius:50%;border:4px solid #3b82f6;">
+      </div>
+
+      <p id="aboutText" style="max-width:700px;line-height:1.8;margin-top:1.5rem;"></p>
+    </section>
+
+    <!-- Projects -->
+    <section id="projects">
+      <h2 class="gradient-text" data-aos="fade-up">Projek</h2>
+      <div class="tabs" data-aos="fade-up" data-aos-delay="200">
+        <button class="active" onclick="filterProjects('all',event)">Semua</button>
+        <button onclick="filterProjects('web',event)">Web</button>
+        <button onclick="filterProjects('uiux',event)">UI/UX</button>
+        <button onclick="filterProjects('ecommerce',event)">E-Commerce</button>
+      </div>
+      <!-- Project List -->
+      <div class="project-list" id="projectList" data-aos="zoom-in">
+        <div class="project-item" data-category="web" onclick="openModal('Skill','https://files.catbox.moe/bxpbj1.jpg')">🌐 Skill</div>
+        <div class="project-item" data-category="uiux" onclick="openModal('Hosting Pterodactly','https://files.catbox.moe/6ssq4l.jpg')">🎨 Pterodactly panel</div>
+        <div class="project-item" data-category="ecommerce" onclick="openModal('E-Commerce Fashion','https://files.catbox.moe/15h62d.jpg')">🛍 E-Commerce Fashion</div>
+        <div class="project-item" data-category="web" onclick="openModal('Hosting Payment System','https://files.catbox.moe/wwdvpq.jpg')">⚡ Hosting Payment System</div>
+      </div>
+
+      <!-- Carousel Showcase -->
+      <div class="swiper" data-aos="fade-up" data-aos-delay="400">
+        <div class="swiper-wrapper">
+          <div class="swiper-slide"><img src="https://files.catbox.moe/9m6a8m.jpg" alt="myfavorit"></div>
+          <div class="swiper-slide"><img src="https://files.catbox.moe/o40wzv.jpg" alt="myfavorit"></div>
+          <div class="swiper-slide"><img src="https://files.catbox.moe/zev9ut.jpg" alt="myfavorit"></div>
+        </div>
+        <div class="swiper-pagination"></div>
+      </div>
+
+      <div style="margin-top:2rem;">
+        <button class="btn-glow" onclick="launchConfetti()">🎉 Lihat Semua Karya</button>
+      </div>
+    </section>
+
+    <!-- CV -->
+    <section id="cv-dimas">
+      <h2 class="gradient-text" data-aos="fade-up">CV Dimas Putra Pratama</h2>
+      <p id="cvText" style="max-width:800px;line-height:1.8;margin-top:1rem;text-align:justify;" data-aos="fade-up" data-aos-delay="200"></p>
+      <div style="margin-top:1.5rem;" data-aos="zoom-in" data-aos-delay="800">
+        <a href="https://files.catbox.moe/nqbgen.odt" target="_blank" class="btn-glow">📄 Lihat CV</a>
+      </div>
+    </section>
+
+    <!-- 🔥 Skill Section -->
+    <section id="skills">
+      <h2 class="gradient-text" data-aos="fade-up">Skill</h2>
+      <div class="skills-container" data-aos="zoom-in">
+        <div class="skill-card" onclick="openSkill('HTML', 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg', 'Bahasa markup untuk struktur dasar website.')">
+          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg" alt="HTML">
+          <h3>HTML</h3>
+          <div class="progress"><div class="bar html"></div></div>
+        </div>
+        <div class="skill-card" onclick="openSkill('CSS', 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg', 'Digunakan untuk desain dan styling halaman website.')">
+          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg" alt="CSS">
+          <h3>CSS</h3>
+          <div class="progress"><div class="bar css"></div></div>
+        </div>
+        <div class="skill-card" onclick="openSkill('JavaScript', 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg', 'Memberikan interaktivitas dan logika pada website.')">
+          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg" alt="JS">
+          <h3>JavaScript</h3>
+          <div class="progress"><div class="bar js"></div></div>
+        </div>
+        <div class="skill-card" onclick="openSkill('React', 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg', 'Framework frontend untuk UI interaktif.')">
+          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg" alt="React">
+          <h3>React</h3>
+          <div class="progress"><div class="bar react"></div></div>
+        </div>
+        <div class="skill-card" onclick="openSkill('Node.js', 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg', 'JavaScript runtime untuk backend.')">
+          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg" alt="Node">
+          <h3>Node.js</h3>
+          <div class="progress"><div class="bar node"></div></div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Modal Project -->
+  <div class="modal" id="projectModal">
+    <div class="modal-content">
+      <span class="close-modal" onclick="closeModal()">&times;</span>
+      <h3 id="modalTitle"></h3>
+      <img id="modalImage" src="" alt="Project Preview">
+    </div>
+  </div>
+
+  <!-- Modal Skill -->
+  <div class="modal" id="skillModal">
+    <div class="modal-content">
+      <span class="close-modal" onclick="closeSkill()">&times;</span>
+      <h3 id="skillTitle"></h3>
+      <img id="skillImage" src="" alt="Skill Logo" style="width:100px;height:100px;object-fit:contain;margin:1rem 0">
+      <p id="skillDesc" style="line-height:1.6"></p>
+    </div>
+  </div>
+
+</body>
+        </html>
